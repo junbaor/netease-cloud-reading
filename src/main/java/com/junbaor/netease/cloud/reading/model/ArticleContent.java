@@ -1,4 +1,4 @@
-package com.junbaor.neteasecloudreading.model;
+package com.junbaor.netease.cloud.reading.model;
 
 public class ArticleContent {
 

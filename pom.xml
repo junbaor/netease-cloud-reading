@@ -58,7 +58,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.junbaor.neteasecloudreading.App</mainClass>
+                            <mainClass>com.junbaor.netease.cloud.reading.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

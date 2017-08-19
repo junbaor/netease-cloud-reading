@@ -1,8 +1,8 @@
-package com.junbaor.neteasecloudreading;
+package com.junbaor.netease.cloud.reading;
 
 import com.google.gson.Gson;
-import com.junbaor.neteasecloudreading.model.ArticleContent;
-import com.junbaor.neteasecloudreading.model.BookMain;
+import com.junbaor.netease.cloud.reading.model.ArticleContent;
+import com.junbaor.netease.cloud.reading.model.BookMain;
 import net.dongliu.requests.Requests;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.binary.Base64;
@@ -15,7 +15,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NeteaseCloudReader {
+public class App {
 
     private static final Gson gson = new Gson();
     private static final Base64 base64 = new Base64();
