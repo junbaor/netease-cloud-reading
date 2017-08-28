@@ -21,6 +21,9 @@ public class App {
     private static final Base64 base64 = new Base64();
 
     public static void main(String[] args) throws EncoderException, IOException {
+        String cookieString = "davisit=NaN; ";
+        Map<String, String> cookies = StringToCookies(cookieString);
+
         String readToText = Requests.get("http://yuedu.163.com/getBook.do?id=3d90ff26ca1c4e15a14918a1b5faf948_4").send().readToText();
         BookMain bookMain = gson.fromJson(readToText, BookMain.class);
 
@@ -33,7 +36,7 @@ public class App {
             parms.put("articleUuid", portionsBean.getId());
             parms.put("bigContentId", portionsBean.getBigContentId());
 
-            String articleContent = Requests.get("http://yuedu.163.com/getArticleContent.do").params(parms).send().readToText();
+            String articleContent = Requests.get("http://yuedu.163.com/getArticleContent.do").params(parms).cookies(cookies).send().readToText();
             ArticleContent article = gson.fromJson(articleContent, ArticleContent.class);
 
             String decode = decode(article.getContent());
@@ -53,5 +56,17 @@ public class App {
         String filePath = "D:/book/" + fileName + ".txt";
         IOUtils.write(string, new FileOutputStream(new File(filePath)));
     }
+
+    public static Map<String, String> StringToCookies(String string) {
+        Map<String, String> cookies = new HashMap<>();
+        String[] split = string.split("; ");
+
+        for (String cookie : split) {
+            String[] temp = cookie.split("=");
+            cookies.put(temp[0], temp[1]);
+        }
+        return cookies;
+    }
+
 
 }
