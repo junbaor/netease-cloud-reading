@@ -6,6 +6,10 @@ public class AppUtils {
     static Pattern pattern = Pattern.compile("^十.");
 
     public static String magic(String ss) {
+        if (ss.indexOf("：") < 0) {
+            System.out.println("* [" + ss + "](" + ss + ".md)");
+            return ss;
+        }
         String[] split = ss.split("：");
 
         String title = split[1];
